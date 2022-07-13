@@ -1,27 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Home } from './screens/Home'
+import React from 'react'
+
+import AppLoading from 'expo-app-loading'
+import { ThemeProvider } from 'styled-components'
+
+import {
+  useFonts,
+  Archivo_400Regular,
+  Archivo_500Medium,
+  Archivo_600SemiBold
+} from '@expo-google-fonts/archivo'
+import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter'
+
+import { AppState } from 'react-native'
+import theme from './styles/theme'
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Archivo_400Regular,
+    Archivo_500Medium,
+    Archivo_600SemiBold
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.emoji}>😻</Text>
-      <Text style={styles.text}>Open src/App.tsx to start working on your app!</Text>
-      <Text>Happy hacking! 🙌🏻</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    marginBottom: 8
-  },
-  emoji: {
-    fontSize: 82,
-    marginBottom: 24
-  }
-})

@@ -1,7 +1,6 @@
 import { Home } from './screens/Home'
 import React from 'react'
 
-import AppLoading from 'expo-app-loading'
 import { ThemeProvider } from 'styled-components'
 
 import {
@@ -12,6 +11,7 @@ import {
 } from '@expo-google-fonts/archivo'
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter'
 
+import AppLoading from 'expo-app-loading'
 import { AppState } from 'react-native'
 import theme from './styles/theme'
 

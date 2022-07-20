@@ -3,10 +3,22 @@ import { Container, Header, HeaderContent, TotalCars } from './styles'
 
 import { RFValue } from 'react-native-responsive-fontsize'
 
+import { Car } from '../../components/Car'
+
 import Logo from '../../assets/logo.svg'
 import { StatusBar } from 'expo-status-bar'
 
 export function Home() {
+  const carData = {
+    brand: 'VW',
+    name: 'Fuscao',
+    rent: {
+      period: 'AO DIA',
+      price: 120
+    },
+    thumbnail: 'https://autopecasabj.com.br/image/cache/data/CARROS/fusca-500x500.png'
+  }
+
   return (
     <Container>
       <StatusBar backgroundColor="transparent" translucent />
@@ -16,6 +28,8 @@ export function Home() {
           <TotalCars>Total: 12 carros</TotalCars>
         </HeaderContent>
       </Header>
+
+      <Car data={carData} />
     </Container>
   )
 }
